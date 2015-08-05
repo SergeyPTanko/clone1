@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pin Code Data</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+$(function() {
+
+var pinData = [];
+var dmJSON = 'http://localhost:8080/pindata';
+$.getJSON( dmJSON, function(data) 
+{
+   $.each(data.pinData, function(i, f) 
+   {
+   
+	console.log(f);
+      var tblRow = "<tr>" + "<td>" + f.pin_id + "</td>"  +"<td>" + f.pin_office_name + "</td>"+ "<td>" + f.pin_code + "</td>" + "<td>" + f.pin_officeType + "</td>" +
+                      "<td>" + f.pin_Deliverystatus + "</td>" + "<td>" + f.pin_divisionname + "</td>" + "<td>" + f.pin_regionname + "</td>" + "<td>" + f.pin_circlename + "</td>"+
+          "<td>" + f.pin_Taluk + "</td>" + "<td>" + f.pin_Districtname + "</td>" + "<td>" + f.pin_statename + "</td>" + "<td>" + f.pin_Telephone + "</td>" +  "</td>" + "</tr>" 
+           
+       $(tblRow).appendTo("#entrydata tbody");
+ });
+
+});
+
+});
+</script>
+
+
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><%= user.user_email %></h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+	
+	<br><br>
+	<div class="page-header text-center">
+	<form  action="/search" method="GET">
+		<div class="form-group">
+			<input type="text" name="mytext" class="form-control" >
+		
+		<br>
+			<input type="radio" name="searchpin" value=1 checked="checked">Search by ID<br>
+			<input type="radio" name="searchpin" value=2>Search by Pin Code<br>
+		</div>
+			
+	</form>
+	</div>
+
+	<div class="row">
+
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-12">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Postal Pin Code Infromation</h3>
+
+					<p>
+
+<table id= "entrydata" border="1">
+<thead>
+ 			<th>id</th>
+            <th>officename</th>
+            <th>pincode</th>
+            <th>officeType</th>
+             <th>Deliverystatus</th>
+              <th>divisionname</th>
+               <th>regionname</th>
+                <th>circlename</th>
+                 <th>Taluk</th>
+            <th>Districtname</th>
+            <th>statename</th>
+            <th>Telephone</th>
+    </thead>
+  <tbody>
+
+   </tbody>
+</table>
+
+					</p>
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>
