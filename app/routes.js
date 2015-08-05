@@ -65,7 +65,7 @@ module.exports = function(app, passport, connection, mysql) {
 	{
 		var x = req.query.mytext;
 		var y = req.query.searchpin;
-		console.log("PAYTM X-> " +x + "Y-> " +y);
+		console.log("KARTIK X-> " +x + "Y-> " +y);
 		res.render('search_pincodedata.ejs', {
 			query : x,
 			api : y,
@@ -89,7 +89,7 @@ module.exports = function(app, passport, connection, mysql) {
         var query = "SELECT * FROM ??";
         var table = ["pin_data"];
         query = mysql.format(query,table);
-        console.log(" PAYTM querry -> " + query + "connection -> " + connection);
+        console.log(" KARTIK querry -> " + query + "connection -> " + connection);
         
         connection.query(query,function(err,rows)
         {
@@ -137,7 +137,7 @@ module.exports = function(app, passport, connection, mysql) {
         var query = "SELECT * FROM ?? WHERE ??=?";
         var table = ["pin_data","pin_code",req.params.pin_code];
         query = mysql.format(query,table);
-        console.log("PAYTM Querry in pin_code -> " + query);
+        console.log("KARTIK Querry in pin_code -> " + query);
         connection.query(query,function(err,rows)
         {
             if(err) 
@@ -160,7 +160,7 @@ module.exports = function(app, passport, connection, mysql) {
         var query = "SELECT * FROM ?? WHERE ??=?";
         var table = ["pin_data","pin_office_name",req.params.pin_office_name];
         query = mysql.format(query,table);
-        console.log("PAYTM Querry in office -> " + query);
+        console.log("KARTIK Querry in office -> " + query);
         connection.query(query,function(err,rows)
         {
             if(err) 

@@ -17,7 +17,7 @@ var pinData = [];
 
 	 var grade = <%= api %>;
  	var apicall = 'http://localhost:8080/pindata/pinid/';
-	console.log("PAYTM grade : " + grade);      	
+	console.log("KARTIK grade : " + grade);      	
             switch (grade)
             {
                case 1: 		
@@ -32,7 +32,7 @@ var pinData = [];
 
 	    var dmJSON = apicall +  <%= query %>;
 	    //var dmJSON = 'http://localhost:8080/pindata/pinid/' + <%= query %>;;
-	    console.log("PAYTM json -> " + dmJSON);
+	    console.log("KARTIK json -> " + dmJSON);
 $.getJSON( dmJSON, function(data) 
 {
    $.each(data.pinData, function(i, f) 

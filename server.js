@@ -24,7 +24,7 @@ app.configure(function()
 	app.set('view engine', 'ejs'); // set up ejs for templating	
 
 	// required for passport
-	app.use(express.session({ secret: 'PAYTM' })); // session secret
+	app.use(express.session({ secret: 'KARTIK' })); // session secret
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
 	app.use(flash()); // use connect-flash for flash messages stored in session
@@ -54,7 +54,7 @@ function connectMysql()
         } 
         else 
         {
-        	console.log("PAYTM_LOG connection ->" + connection);
+        	console.log("KARTIK_LOG connection ->" + connection);
         	fetchDataFromAPI(connection);
         	require('./app/routes.js')(app, passport, connection, mysql); // load our routes and pass in our app and fully configured passport
         }
@@ -75,12 +75,12 @@ function fetchDataFromAPI(connection)
     res.on('end', function()
      {
         var fbResponse = JSON.parse(body)
-        console.log("PAYTM Got response: OK ");
+        console.log("KARTIK Got response: OK ");
         
         fbResponse.records.forEach(function(f)
         {
         
-       // console.log("PAYTM LOG what is in array : " + f.id);
+       // console.log("KARTIK LOG what is in array : " + f.id);
 		
       	var id = f.id ;
       	var officename =  f.officename 
